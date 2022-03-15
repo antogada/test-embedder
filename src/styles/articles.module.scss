@@ -1,0 +1,71 @@
+@import "./variables.scss";
+
+.container {
+  max-width: 1126px;
+  margin: $medium-space auto 48px;
+  padding: 0 8px;
+  color: $primary-text-color;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $medium-space;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.articles {
+  display: grid;
+  gap: $medium-space 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  grid-auto-rows: auto;
+}
+
+.no-articles {
+  text-align: center;
+  min-height: 800px;
+  margin-top: $large-space;
+}
+
+@media only screen and (max-width: $large-tablet) {
+  .articles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .articles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .container {
+    margin: $small-space auto $medium-space;
+    padding: 0;
+  }
+
+  .about {
+    padding: 0 $small-space;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: $small-space;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: $small-space;
+  }
+
+  .articles {
+    display: grid;
+    gap: $small-space;
+    grid-auto-rows: auto;
+    margin-bottom: $medium-space;
+  }
+}

@@ -1,0 +1,77 @@
+@import './../../styles/variables.scss';
+
+.container {
+  width: 360px;
+  min-width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  height: 221px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: $extra-small-space;
+  position: relative;
+  border-radius: 4px;
+}
+
+.category-container {
+  position: absolute;
+  height: 89px;
+  bottom: -5px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%,#1A1A1A  100%);
+}
+
+.category,
+.date {
+  color: $secondary-text-color;
+}
+
+.category {
+  position: absolute;
+  bottom: 0;
+  padding: 0 8px;
+}
+
+.info {
+  display: grid;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.link {
+  justify-self: baseline;
+}
+
+@media only screen and (max-width: $large-tablet) {
+  .link {
+    justify-self: auto;
+  }
+
+  .category {
+    padding: 0 8px;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .link {
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .category {
+    padding: 0 8px;
+  }
+
+  .info {
+    padding: 0 $extra-small-space;
+  }
+}

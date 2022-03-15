@@ -1,0 +1,139 @@
+@import "./../../styles/variables.scss";
+
+.container {
+  max-width: 750px;
+  margin: 0 auto 48px;
+  padding: 0 $small-space;
+  color: $primary-text-color;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  justify-content: space-between;
+  background: #242424;
+  padding: 12px 16px;
+  margin-top: -4px; // Check if what is the issue here
+  border-radius: 0px 0px 6px 6px;
+}
+
+.social-icons {
+  position: relative;
+  display: grid;
+  gap: 16px; // ask fo 16px
+  grid-auto-flow: column;
+  color: $odd-color;
+
+  a {
+    height: 27px;
+  }
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.image {
+  width: 100%;
+}
+
+.about {
+  display: grid;
+  grid-template-areas:
+    "date divider author"
+    "time-to-read time-to-read time-to-read";
+  gap: $extra-small-space;
+  align-items: center;
+  width: fit-content;
+  color: $secondary-text-color;
+  color: #fff;
+}
+
+.divider {
+  grid-area: divider;
+  color: #A5A1A1;
+}
+
+.author-name {
+  grid-area: author;
+}
+
+.date-and-read-time {
+  grid-area: date;
+}
+
+.time-to-read {
+  grid-area: time-to-read;
+  color: #A5A1A1;
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.content {
+
+  * {
+    margin-bottom: $small-space;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 16px 0;
+  }
+
+  p img {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  a {
+    color: $odd-color;
+  }
+}
+
+.copy-snackbar {
+  position: fixed;
+  background: $odd-color;
+  color: #fff;
+  padding: 8px 16px;
+  bottom: 90px;
+  font-size: 20px;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin: auto;
+}
+
+@media only screen and (max-width: $tablet) {
+  .social-icons {
+    gap: $extra-small-space;
+  }
+
+  .copy-snackbar {
+    font-size: 16px;
+  }
+
+  .container {
+    margin: 0px auto $medium-space;
+    padding: 0;
+  }
+
+  .title {
+    margin-bottom: $small-space;
+  }
+
+  .info {
+    border-radius: 0px;
+  }
+
+  .title,
+  .content {
+    padding: 0 $extra-small-space;
+  }
+}

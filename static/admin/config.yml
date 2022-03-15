@@ -1,0 +1,95 @@
+backend:
+  name: gitlab
+  repo: santosbg/futbolbro-2.0
+  branch: master
+  auth_type: implicit
+  app_id: 662ec42f608ffa611fa95c2e10834fd1bb59302423b9a9953c1c0ffca0f07259
+media_folder: static/assets
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: futbolbro
+    api_key: 317289867483222
+    default_transformations:
+      - fetch_format: auto
+        quality: auto:good
+public_folder: assets
+display_url: FUTBOLBRO
+logo_url: https://firebasestorage.googleapis.com/v0/b/futbolbro-eda7a.appspot.com/o/131570354_481748379460312_1144674146028603876_n.png?alt=media&token=635d5330-6fc8-40af-bb9d-d663ad7cb269
+collections:
+  - name: articles
+    label: Article
+    folder: src/articles/
+    create: true
+    identifier_field: slug
+    summary: "{{day}}-{{month}}-{{year}} | {{title}}"
+    slug: "{{filename}}"
+    fields:
+      - {
+        name: draft,
+        label: Draft,
+        widget: boolean,
+        default: true
+      }
+      - {
+        name: title,
+        label: Title,
+        required: true,
+      }
+      - {
+        name: filename,
+        label: Filename,
+        required: true,
+        hint: "Same as the title but with latin letters and the words are separated with dashes (Страхотен мач - strahoten-mach)"
+      }
+      - {
+        name: timeToRead,
+        label: Time to read,
+        required: true,
+      }
+      - {
+        name: intro,
+        label: Intro,
+        required: true,
+      }
+      - {
+        name: author,
+        label: Author,
+        required: true,
+        widget: select,
+        default: "Антон Иванов",
+        options: ["Антон Иванов", "Николай Танев", "Илиан Ангелов", "Кристиян Клепалски"]
+      }
+      - {
+        name: date,
+        label: Date,
+        widget: datetime,
+        required: true
+      }
+      - {
+        name: category,
+        label: Category,
+        required: true,
+        widget: select,
+        options: ["Анализи", "Фен Зона", "Новини", "Прогнози"]
+      }
+      - {
+        name: image,
+        label: Image,
+        widget: image,
+        required: true
+      }
+      - {
+        name: content,
+        label: Content,
+        widget: markdown,
+        required: true
+      }
+      - {
+        name: keywords,
+        label: Keywords (SEO),
+        widget: list,
+        required: true,
+        hint: "футбол футболни-статии футболна-програма футболни-прогнози футболно-класиране"
+      }
+    sortableFields: [date, title, author, draft]
